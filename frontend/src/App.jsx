@@ -7,7 +7,9 @@ function App() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/data')
+    // Use relative path - Vite proxy will forward to backend
+    fetch('/api/data')
+
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok')

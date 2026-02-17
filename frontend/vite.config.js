@@ -10,9 +10,16 @@ export default defineConfig({
 
     port: 5173,
     allowedHosts: ['.trycloudflare.com'],
+    proxy: {
+      '/api': {
+        target: 'http://backend:8000',
+        changeOrigin: true,
+      },
+    },
     watch: {
       usePolling: true,
     },
   },
+
 
 });

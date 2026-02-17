@@ -9,8 +9,10 @@ export default defineConfig({
     strictPort: true,
 
     port: 5173,
+    allowedHosts: ['.trycloudflare.com'],
     watch: {
       usePolling: true,
     },
   },
+
 });

@@ -22,6 +22,7 @@ services:
   tunnel:
     image: cloudflare/cloudflared:latest
     restart: always
-    command: tunnel --url http://backend:8000
+    command: tunnel --url http://frontend:5173
+
 
 

@@ -23,6 +23,10 @@ services:
     image: cloudflare/cloudflared:latest
     restart: always
     command: tunnel --url http://frontend:5173
+    depends_on:
+      - frontend
+      - backend
+
 
 
 

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    restart: always
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    restart: always
+
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: always
+    command: tunnel --url http://backend:8000
+
+
